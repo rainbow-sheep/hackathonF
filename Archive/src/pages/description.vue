@@ -4,7 +4,7 @@
 
     <div class="form_container">
       <div class="title">Describe Yourself</div>
-      <div><input class="searche" placeholder="What's your name?" /></div>
+      <div><input class="searche" placeholder="What's your name?" v-model="name"/></div>
       <div class="description_flexbox">
         <section class="description_left_block">
           <el-input
@@ -26,9 +26,9 @@
             >
             </el-alert>
             <br />
-            <el-input v-model: "facebook" placeholder="Facebook URL"></el-input>
+            <el-input placeholder="Facebook URL"></el-input>
             <br />
-            <el-input v-model: "github" placeholder="Github URL"></el-input>
+            <el-input placeholder="Github URL"></el-input>
             <div
               style="margin-top: 5px; text-align: right; color: #808080; font-size: 14px "
             >
@@ -43,20 +43,33 @@
 </template>
 
 <script>
-import Nav from "../components/Nav";
+  import firebase from "firebase";
+  import Nav from "../components/Nav";
 export default {
   name: "description",
   methods: {
     submit() {
+      let description = this.textarea;
+      let name = this.name;
+      firebase
+        .auth()
+        .createUserWithEmailAndPassword(btoa(name).split("=").join('') + "@bbb.edu", "shou@123")
+        .then(data => {
+          console.log(data);
+          window.location = `/#/interest?description=${btoa(description).split("=").join('')}&name=${btoa(name).split("=").join('')}`;
+        })
+        .catch(err => {
+          console.log(err.message);
+        });
       console.log(this.data);
-      window.location = "/#/interest";
-    }
+    },
   },
   data() {
     return {
       github: "",
-      facebook: "", 
+      facebook: "",
       textarea: "",
+      name: "",
       options: [
         {
           value: "选项1",
