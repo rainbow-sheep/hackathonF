@@ -9,7 +9,7 @@
         <section class="description_left_block">
           <el-input
             class="interesting"
-            placeholder="What's your bio?"
+            placeholder="Write your bio..."
             type="textarea"
             :rows="8"
             v-model="textarea"
@@ -26,9 +26,9 @@
             >
             </el-alert>
             <br />
-            <el-input placeholder="Facebook URL"></el-input>
+            <el-input v-model: "facebook" placeholder="Facebook URL"></el-input>
             <br />
-            <el-input placeholder="Github URL"></el-input>
+            <el-input v-model: "github" placeholder="Github URL"></el-input>
             <div
               style="margin-top: 5px; text-align: right; color: #808080; font-size: 14px "
             >
@@ -54,6 +54,8 @@ export default {
   },
   data() {
     return {
+      github: "",
+      facebook: "", 
       textarea: "",
       options: [
         {
