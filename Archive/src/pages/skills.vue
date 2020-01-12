@@ -19,10 +19,13 @@
           ‍ {{ i.emoji }} {{ i.name }}
         </el-button>
       </div>
-
+      <br />
       <div>
         <div v-for="i in features" v-bind:key="i">
           <label class="auth_label">{{ i.name }}</label>
+          <label style="float: right" class="amt">
+            Skill Level: {{ i.percentage / 10 }}</label
+          >
           <el-slider v-model="i.percentage"></el-slider>
         </div>
       </div>

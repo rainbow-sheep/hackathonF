@@ -17,9 +17,13 @@
           ‍ {{ i.emoji }} {{ i.name }}
         </el-button>
       </div>
-
+      <br />
       <div>
         <div v-for="i in features">
+          <label style="float: right" class="amt">
+            Interest Level: {{ i.percentage / 10 }}</label
+          >
+
           <label class="auth_label">{{ i.name }}</label>
           <el-slider v-model="i.percentage"></el-slider>
         </div>
