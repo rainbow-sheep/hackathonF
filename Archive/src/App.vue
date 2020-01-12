@@ -15,7 +15,7 @@
 body {
   margin: 0;
 }
-.auth_button {
+#auth_button {
   margin-top: 20px;
   background-color: rgb(79, 101, 241);
   color: rgb(255, 255, 255);
@@ -32,12 +32,12 @@ body {
   border: none;
 }
 
-.auth_button:hover {
+#auth_button:hover {
   background-color: rgb(19, 61, 170);
   color: white !important;
 }
 
-.auth_button:focus {
+#auth_button:focus {
   background-color: rgb(19, 61, 170);
   color: white !important;
 }

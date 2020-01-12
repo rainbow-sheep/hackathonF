@@ -26,7 +26,7 @@
         </div>
       </div>
 
-      <el-button class="auth_button" @click="submit">Next</el-button>
+      <el-button id="auth_button" @click="submit">Next</el-button>
     </div>
   </div>
 </template>
@@ -105,7 +105,8 @@ export default {
       this.selectDisable = this.selected.length === 3;
     },
     submit() {
-      console.log(this.features);
+      console.log(this.data);
+      window.location = "#/dashboard";
     }
   }
 };
@@ -141,27 +142,6 @@ export default {
   align-content: flex-start;
   flex-flow: wrap;
   justify-content: center;
-}
-.auth_button {
-  margin-top: 20px;
-  background-color: rgb(79, 101, 241);
-  color: rgb(255, 255, 255);
-  font-size: 15px;
-  font-weight: 400;
-  height: 44px;
-  letter-spacing: 1px;
-  line-height: inherit;
-  text-transform: uppercase;
-  width: 100%;
-  box-shadow: rgb(67, 81, 232) 0px 0px 0px 0px inset,
-    rgba(79, 101, 241, 0.15) 0px 7px 12px -2px;
-  border-width: 0px;
-  border-style: initial;
-  border-color: initial;
-  border-image: initial;
-  border-radius: 4px;
-  padding: 9px 20px;
-  text-decoration: none;
 }
 @media screen and (max-width: 765px) {
   .form_container {

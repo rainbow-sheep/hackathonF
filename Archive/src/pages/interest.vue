@@ -25,7 +25,7 @@
         </div>
       </div>
 
-      <el-button class="auth_button" @click="submit">Next</el-button>
+      <el-button id="auth_button" @click="submit">Next</el-button>
     </div>
   </div>
 </template>
@@ -104,7 +104,8 @@ export default {
       this.selectDisable = this.selected.length === 3;
     },
     submit() {
-      console.log(this.features);
+      console.log(this.data);
+      window.location = "#/skills";
     }
   }
 };

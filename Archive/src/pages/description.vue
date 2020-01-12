@@ -35,7 +35,7 @@
           </div>
         </section>
       </div>
-      <el-button @click="submit()" class="auth_button">Next</el-button>
+      <el-button @click="submit()" id="auth_button">Next</el-button>
     </div>
   </div>
 </template>
