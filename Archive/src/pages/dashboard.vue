@@ -18,7 +18,7 @@
             </div>
         </div>
         <Tinder ref="tinder" key-name="id" :queue.sync="queue" :offset-y="10" @submit="onSubmit">
-            <template slot-scope="scope">
+            <template >
                 <div class="card_container" >
                     <el-carousel height="60vh"
                                  :initial-index.sync="ii"
@@ -42,7 +42,6 @@
         <div class="btns">
             <img src="../assets/rewind.png" @click="decide('rewind')">
             <img src="../assets/nope.png" @click="decide('nope')">
-            <img src="../assets/super-like.png" @click="decide('super')">
             <img src="../assets/like.png" @click="decide('like')">
         </div>
         <el-dialog
