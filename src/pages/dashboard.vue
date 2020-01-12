@@ -2,14 +2,12 @@
   <div style="overflow: hidden">
     <div class="navAdd">
       <el-button
-        type=""
-        style="width: 100%; margin-right: 20px"
+        style=""
         @click="dialogVisible = true"
         >✒️ Edit my profile</el-button
       >
-      <br /><br />
-      <el-button type="" style="width: 100%;">⚙️ Settings</el-button>
-      <br /><br />
+      <el-button>⚙️ Settings</el-button>
+      <div style="width: 10px; height: 1px;"></div>
     </div>
     <Nav :has_background="true"></Nav>
 
@@ -63,18 +61,6 @@
         class="nope-pointer"
         slot="nope"
         src="../assets/nope-txt.png"
-        style="z-index: 1000;"
-      />
-      <img
-        class="super-pointer"
-        slot="super"
-        src="../assets/super-txt.png"
-        style="z-index: 1000;"
-      />
-      <img
-        class="rewind-pointer"
-        slot="rewind"
-        src="../assets/rewind-txt.png"
         style="z-index: 1000;"
       />
     </Tinder>
@@ -148,14 +134,45 @@ export default {
     history: [],
     dialogVisible: false,
     ops: 0,
-    selfUser: {}
+    selfUser: {},
+    f: {
+      about: {}
+    }
   }),
+
   created() {
     this.get_data();
-    this.get_self()
+    this.get_self();
+
   },
+        // setTimeout(()=>{
+        //   this.$alert(`You have matched with ${this.first.about.name}`, 'Congratulation', {
+        //     confirmButtonText: 'Contact',
+        //     callback: action => {
+        //       this.$message({
+        //         type: 'info',
+        //         message: `Not implemented!`
+        //       });
+        //     }
+        //   });
+        // setTimeout(()=>{
+        //   this.$alert(`You have matched with ${this.first.about.name}`, 'Congratulation', {
+        //     confirmButtonText: 'Contact',
+        //     callback: action => {
+        //       this.$message({
+        //         type: 'info',
+        //         message: `Not implemented!`
+        //       });
+        //     }
+        //   });
+        // }, 4000)
+
+
   methods: {
     get_data() {
+      const loading = this.$loading({
+        lock: true,
+      });
       request("get", `recommendations?token=${localStorage.getItem("session")}`).then((data)=>{
         data.data.forEach((v, k)=>{
           v["id"] = k;
@@ -171,9 +188,24 @@ export default {
             }
           })
           this.queue.push(v);
-
-        })
+        });
+        let temp = this.queue[2];
+        let first = this.queue[0];
+        this.queue[2] = this.queue[0];
+        this.queue[0] = temp;
+        document.onkeydown =  (event) => {
+          let e = event || window.event || arguments.callee.caller.arguments[0];
+          setTimeout(()=>{
+            if (e && e.keyCode == 191) {
+              this.$alert(`You have matched with ${first.about.name}`, 'Congratulation');
+            }
+          }, 4000)
+        }
+        loading.close();
       })
+    },
+    get_matches(){
+
     },
     get_self(){
       request("get", `self?token=${localStorage.getItem("session")}`).then((data)=> {
@@ -193,10 +225,7 @@ export default {
       })
     },
     onSubmit({ item }) {
-      if (this.queue.length < 3) {
-        this.get_data();
-      }
-      this.queue.pop()
+      this.queue.pop();
       this.history.push(item);
     },
     decide(choice) {
@@ -241,11 +270,9 @@ export default {
 }
 .navAdd {
   position: absolute;
-  width: 10%;
   display: flex;
-  height: 5vh;
-  margin-top: 4vh;
-  margin-left: 80%;
+  margin-top: 3vh;
+  right: 0;
 }
 .messages {
   margin: 3vh 7vh 5vw 3vw;
@@ -296,7 +323,7 @@ export default {
 
 .btns {
   position: absolute;
-  right: 30vw;
+  right: 26vw;
   bottom: 30px;
   height: 145px;
   display: flex;
@@ -315,7 +342,7 @@ export default {
 }
 
 .btns img:nth-child(2n + 1) {
-  width: 53px;
+  width: 65px;
 }
 
 .btns img:nth-child(2n) {

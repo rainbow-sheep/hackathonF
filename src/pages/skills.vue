@@ -39,6 +39,7 @@
 import Nav from "../components/Nav";
 import getUrlVars from "../utils/get";
 import {request} from "../utils/request";
+import base64DecodeUnicode from "../utils/base64";
 export default {
   name: "skill",
   data() {
@@ -114,7 +115,6 @@ export default {
       for (let v of this.features){
         arr[parseInt(v.index) + 19] = parseInt(v.percentage)/10;
       }
-      console.log(arr)
       return arr
     },
     submit() {
@@ -122,8 +122,7 @@ export default {
       console.log(oldArgs)
       for (let k in oldArgs){
         if (k === "_method" || k=== "token"){continue}
-        console.log(k)
-        oldArgs[k] = atob(oldArgs[k])
+        oldArgs[k] = base64DecodeUnicode(oldArgs[k])
       }
       oldArgs["about"] = {
         name: oldArgs["name"],

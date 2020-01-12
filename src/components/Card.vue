@@ -53,6 +53,7 @@ export default {
   border-width: 7px;
   border-radius: 10px;
   height: max-content;
+
   border-color: #eee;
   background-color: #fff;
 }

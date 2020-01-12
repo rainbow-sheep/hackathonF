@@ -3,7 +3,7 @@
     <div @click="goHome" class="nav_content">
       <img
         height="71"
-        style="padding: 30px 0px 10px 10px;"
+        style="padding: 10px 0px 10px 10px;"
         src="../assets/logo.svg"
       />
       <div style="margin: auto 20px auto 0; ">
