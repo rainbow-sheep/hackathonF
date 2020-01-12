@@ -1,4 +1,4 @@
-const server = "http://34.69.9.37:9000/";
+const server = "https://api.palp.tech/";
 import axios from 'axios';
 import QS from 'qs';
 import { Notification } from "element-ui"
