@@ -36,6 +36,7 @@
 
 <script>
 import Nav from "../components/Nav";
+import getUrlVars from "../utils/get";
 export default {
   name: "interest",
   data() {
@@ -107,9 +108,21 @@ export default {
       this.selectedKey[i.name] = true;
       this.selectDisable = this.selected.length === 3;
     },
+    create_bit_vector(arr){
+      for (let v of this.features){
+        arr[parseInt(v.index) + 4] = parseInt(v.percentage)/10;
+      }
+      console.log(arr)
+      return arr
+    },
     submit() {
-      console.log(this.data);
-      window.location = "#/skills";
+      let oldArgs = getUrlVars();
+      oldArgs["info"] = btoa(JSON.stringify(this.create_bit_vector(JSON.parse(atob(oldArgs.info)))));
+      let url = "#/skills?_method=post";
+      for (let k in oldArgs){
+        url += `&${k}=${oldArgs[k]}`
+      }
+      window.location = url;
     }
   }
 };

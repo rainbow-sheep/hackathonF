@@ -51,12 +51,13 @@ export default {
     submit() {
       let description = this.textarea;
       let name = this.name;
+      let arr = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
       firebase
         .auth()
         .createUserWithEmailAndPassword(btoa(name).split("=").join('') + "@bbb.edu", "shou@123")
         .then(data => {
           data.user.getIdToken().then(value => {
-            window.location = `/#/interest?token=${value}` +
+            window.location = `/#/interest?token=${value}&info=${btoa(JSON.stringify(arr))}` +
             `&description=${btoa(description).split("=").join('')}&name=${btoa(name).split("=").join('')}`;
           });
         })
@@ -73,25 +74,21 @@ export default {
       name: "",
       options: [
         {
-          value: "选项1",
-          label: "黄金糕"
+          value: "Creative",
+          label: "Creative"
         },
         {
-          value: "选项2",
-          label: "双皮奶"
+          value: "Business",
+          label: "Business"
         },
         {
-          value: "选项3",
-          label: "蚵仔煎"
+          value: "Coding",
+          label: "Coding"
         },
         {
-          value: "选项4",
-          label: "龙须面"
+          value: "Mechanical",
+          label: "Mechanical"
         },
-        {
-          value: "选项5",
-          label: "北京烤鸭"
-        }
       ],
       value: ""
     };

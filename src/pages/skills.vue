@@ -37,6 +37,8 @@
 
 <script>
 import Nav from "../components/Nav";
+import getUrlVars from "../utils/get";
+import {request} from "../utils/request";
 export default {
   name: "skill",
   data() {
@@ -108,9 +110,29 @@ export default {
       this.selectedKey[i.name] = true;
       this.selectDisable = this.selected.length === 3;
     },
+    create_bit_vector(arr){
+      for (let v of this.features){
+        arr[parseInt(v.index) + 19] = parseInt(v.percentage)/10;
+      }
+      console.log(arr)
+      return arr
+    },
     submit() {
-      console.log(this.data);
-      window.location = "#/dashboard";
+      let oldArgs = getUrlVars();
+      console.log(oldArgs)
+      for (let k in oldArgs){
+        if (k === "_method" || k=== "token"){continue}
+        console.log(k)
+        oldArgs[k] = atob(oldArgs[k])
+      }
+      oldArgs["about"] = {
+        name: oldArgs["name"],
+        description: oldArgs["description"]
+      }
+      oldArgs["info"] = this.create_bit_vector(JSON.parse(oldArgs.info));
+      request("json", "register", oldArgs).then((data, s) => {
+        window.location = "/#/dashboard";
+      })
     }
   }
 };
