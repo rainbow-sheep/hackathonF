@@ -81,15 +81,7 @@ export default {
   flex-direction: column;
   justify-content: space-between;
 }
-.form_container {
-  width: 80%;
-  max-width: 700px;
-  margin: 20vh auto;
-  height: max-content;
-  background: white;
-  padding: 20px;
-  border-radius: 10px;
-}
+
 .register_flexbox {
   display: flex;
   justify-content: space-between;
@@ -125,11 +117,6 @@ export default {
   text-decoration: none;
 }
 @media screen and (max-width: 765px) {
-  .form_container {
-    margin-top: 10vh;
-    width: 80%;
-    max-width: 400px;
-  }
   .register_flexbox {
     display: block;
   }

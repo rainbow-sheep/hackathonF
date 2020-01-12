@@ -120,15 +120,6 @@ export default {
 .selected {
   background: #000;
 }
-.form_container {
-  width: 80%;
-  max-width: 700px;
-  margin: 10vh auto;
-  height: max-content;
-  background: white;
-  padding: 20px;
-  border-radius: 10px;
-}
 .title {
   font-weight: 900;
   font-size: 32px;
@@ -140,13 +131,5 @@ export default {
   align-content: flex-start;
   flex-flow: wrap;
   justify-content: center;
-}
-
-@media screen and (max-width: 765px) {
-  .form_container {
-    margin-top: 10vh;
-    width: 80%;
-    max-width: 400px;
-  }
 }
 </style>

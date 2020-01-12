@@ -27,15 +27,6 @@ export default {
 
   background-size: cover;
 }
-.form_container {
-  width: 80%;
-  max-width: 400px;
-  margin: 20vh auto;
-  height: max-content;
-  background: white;
-  padding: 20px;
-  border-radius: 10px;
-}
 .title {
   font-weight: 900;
   font-size: 32px;

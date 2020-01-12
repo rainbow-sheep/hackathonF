@@ -35,7 +35,23 @@ body {
   text-decoration: none;
   border: none;
 }
+.form_container {
+  width: 80%;
+  max-width: 700px;
+  margin: 5vh auto;
+  height: max-content;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+}
 
+@media screen and (max-width: 765px) {
+  .form_container {
+    margin-top: 5vh;
+    width: 80%;
+    max-width: 400px;
+  }
+}
 #auth_button:hover {
   background-color: #e62200;
   color: white !important;
