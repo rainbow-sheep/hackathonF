@@ -1,6 +1,9 @@
 <template>
   <div class="login_container">
-    <Nav :has_background="true"></Nav>
+    <div class="background_container">
+      <img src="../assets/landing.png" />
+    </div>
+    <Nav class="transparent" :has_background="true"></Nav>
   </div>
 </template>
 
@@ -13,10 +16,22 @@ export default {
 </script>
 
 <style scoped>
-.login_container {
+.transparent {
+  background: rgba(255, 255, 255, 0.5);
+}
+.background_container {
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  background-image: url("../assets/landing.png");
+}
+img {
   height: 100vh;
+  width: 100%;
+  position: absolute;
+}
+.login_container {
   overflow: hidden;
-
   background-size: cover;
 }
 

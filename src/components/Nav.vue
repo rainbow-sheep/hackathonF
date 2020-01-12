@@ -22,7 +22,7 @@ export default {
   },
   methods: {
     goHome() {
-      window.location = "/";
+      window.location = "/#/";
     }
   }
 };

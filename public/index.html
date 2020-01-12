@@ -17,12 +17,14 @@
     <div id="app"></div>
     <!-- built files will be auto injected -->
     <script>
+      body = document.querySelector("body");
       if ((window.location.href = "#/dashboard")) {
-        body = document.querySelector("body");
         body.classList.toggle("dashboard");
-      }
     </script>
     <style>
+      .index {
+        background-image: "../assets/landing.png";
+      }
       .dashboard {
         overflow: hidden;
       }
