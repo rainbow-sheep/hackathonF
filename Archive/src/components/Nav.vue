@@ -1,6 +1,6 @@
 <template>
   <div class="nav_container" :class="has_background ? 'nav_background' : ''">
-    <div class="nav_content">
+    <div @click="goHome" class="nav_content">
       <img
         height="71"
         style="padding: 30px 0px 10px 10px;"
