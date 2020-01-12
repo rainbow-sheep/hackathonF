@@ -19,6 +19,11 @@ export default {
   name: "Nav",
   props: {
     has_background: Boolean
+  },
+  methods: {
+    goHome() {
+      window.location = "/";
+    }
   }
 };
 </script>
