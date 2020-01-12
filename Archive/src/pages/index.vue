@@ -1,7 +1,6 @@
 <template>
   <div class="login_container">
     <Nav :has_background="true"></Nav>
-    <div>Under Construction</div>
   </div>
 </template>
 
