@@ -19,8 +19,11 @@
         </div>
       </div>
       <div class="dash_right_box">
+        <Card ref="card" ></Card>
         <div>
           <Card ref="card" style="margin-top: 5%;"></Card>
+
+
         </div>
       </div>
     </div>
@@ -31,7 +34,7 @@
       :before-close="handleClose">
       <div v-show="ops===0">
         <Card :no_show="true"></Card>
-        <div style="display: flex; justify-content: center;margin: 20px 0 0 0;">
+        <div style="display: flex; justify-content: center; margin: 20px 0 0 0;">
           <el-button @click="ops=1">Add New Pages</el-button>
           <el-button @click="ops=2">Edit Current Page</el-button>
         </div>

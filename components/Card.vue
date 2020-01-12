@@ -1,10 +1,10 @@
 <template>
   <div>
-    <div class="card_container">
+    <div @click = "next" class="card_container" ref="card_container" draggable="true">
       <el-carousel
         height="60vh"
         v-show="op === 1"
-        :initial-index.sync="ii"
+        :initial-index.sync="0"
         :autoplay="false"
         trigger="click"
         ref="car"
@@ -14,6 +14,7 @@
           v-for="item in currentItem"
           :key="item"
           class="carousel"
+
         >
           <Bio v-show="item === 1"></Bio>
           <Story v-show="item !== 1"></Story>
@@ -52,13 +53,14 @@ export default {
   },
   methods: {
     next() {
-      this.$refs.car.setActiveItem(0);
-
-      this.op = 0;
-      this.currentItem = [5, 4, 2];
-      setTimeout(() => {
-        this.op = 1;
-      }, 1000);
+      console.log(this.$refs.card_container.classList.toggle('disappear'))
+      // this.$refs.car.setActiveItem(0);
+      //
+      // this.op = 0;
+      // this.currentItem = [5, 4, 2];
+      // setTimeout(() => {
+      //   this.op = 1;
+      // }, 1000);
     }
   },
   components: { Bio, Story, Loading }
@@ -66,7 +68,11 @@ export default {
 </script>
 
 <style scoped>
+  .disappear{
+    display: none;
+  }
 .card_container {
+  box-shadow: 1px 1px 5px #000;
   position: absolute;
   z-index: 99;
   width: 60vw;
