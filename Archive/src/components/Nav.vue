@@ -1,7 +1,15 @@
 <template>
   <div class="nav_container" :class="has_background ? 'nav_background' : ''">
     <div class="nav_content">
-      <div class="title nav_name">PalUp</div>
+      <img
+        height="71"
+        style="padding: 30px 0px 10px 10px;"
+        src="../assets/logo.svg"
+      />
+      <div style="margin: auto 20px auto 0; ">
+        <div class="title nav_name pal">PAL</div>
+        <div class="title nav_name up">&nbsp;&nbsp;&nbsp;UP</div>
+      </div>
     </div>
   </div>
 </template>
@@ -16,9 +24,12 @@ export default {
 </script>
 
 <style scoped>
+.nav_content {
+  display: flex;
+  flex-direction: row;
+}
 .nav_container {
   width: 100%;
-  height: 10vh;
 }
 .nav_background {
   border-width: 0 0 0.5px 0;
@@ -31,9 +42,11 @@ export default {
   align-items: center;
 }
 .nav_name {
-  margin: auto 2em;
+  margin: auto 0.2em;
+  line-height: 0.8em;
   color: #000;
   font-size: 26px;
-  font-weight: 800;
+  font-weight: 20;
+  font-family: "Josefin Sans", sans-serif;
 }
 </style>
