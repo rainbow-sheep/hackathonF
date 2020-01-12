@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <link rel="icon" href="<%= BASE_URL %>log.ico" />
-    <title>codesandbox</title>
+    <title>Pal Up</title>
   </head>
   <body>
     <noscript>
@@ -16,7 +16,16 @@
     </noscript>
     <div id="app"></div>
     <!-- built files will be auto injected -->
+    <script>
+      if ((window.location.href = "#/dashboard")) {
+        body = document.querySelector("body");
+        body.classList.toggle("dashboard");
+      }
+    </script>
     <style>
+      .dashboard {
+        overflow: hidden;
+      }
       .el-button.el-button--medium.is-roundJ:focus {
         background-color: #ff6348 !important;
       }
