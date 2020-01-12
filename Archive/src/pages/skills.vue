@@ -116,7 +116,6 @@ export default {
 .skill_container {
   height: 100vh;
   overflow: hidden;
-  background-image: url("/login_pic.jpg");
   background-size: cover;
 }
 .selected {
