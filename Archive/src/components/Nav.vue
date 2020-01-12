@@ -41,6 +41,7 @@ export default {
   color: #eee;
   border-style: solid;
   background-color: white;
+  background-image: "../assets/landing.png";
 }
 .nav_container {
   display: flex;
