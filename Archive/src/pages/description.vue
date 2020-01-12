@@ -9,6 +9,7 @@
         <section class="description_left_block">
           <el-input
             class="interesting"
+            placeholder="What's your bio?"
             type="textarea"
             :rows="8"
             v-model="textarea"
