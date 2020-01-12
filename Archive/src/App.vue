@@ -21,7 +21,7 @@ body {
 }
 #auth_button {
   margin-top: 20px;
-  background-color: rgb(79, 101, 241);
+  background-color: #ff6348;
   color: rgb(255, 255, 255);
   font-size: 15px;
   font-weight: 400;
@@ -37,12 +37,12 @@ body {
 }
 
 #auth_button:hover {
-  background-color: rgb(19, 61, 170);
+  background-color: #e62200;
   color: white !important;
 }
 
 #auth_button:focus {
-  background-color: rgb(19, 61, 170);
+  background-color: #e62200;
   color: white !important;
 }
 </style>

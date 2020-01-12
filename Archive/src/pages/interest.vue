@@ -3,7 +3,7 @@
     <Nav :has_background="true"></Nav>
 
     <div class="form_container">
-      <div class="title">Select Your Interests</div>
+      <div class="title">What skills are you interested in?</div>
       <div class="interest_buttons">
         <el-button
           size="medium"
@@ -37,21 +37,21 @@ export default {
   data() {
     return {
       interests: [
-        { name: "Eating", emoji: "🏊‍" },
-        { name: "Peeing", emoji: "🏊‍" },
-        { name: "Bluffing", emoji: "🏊‍" },
-        { name: "Shouing", emoji: "🏊‍" },
-        { name: "Blowing", emoji: "🏊‍" },
-        { name: "Sleeping", emoji: "🏊‍" },
-        { name: "Dicking", emoji: "🏊‍" },
-        { name: "Going", emoji: "🏊‍" },
-        { name: "Python", emoji: "🏊‍" },
-        { name: "Rust", emoji: "🏊‍" },
-        { name: "Fucking", emoji: "🍆‍" },
-        { name: "Fucking", emoji: "🍆‍" },
-        { name: "Fucking", emoji: "🍆‍" },
-        { name: "Fucking", emoji: "🍆‍" },
-        { name: "Fucking", emoji: "🍆‍" }
+        { name: "Creative Writing", emoji: "🖊️" },
+        { name: "Math", emoji: "➕" },
+        { name: "Teaching", emoji: "🏫" },
+        { name: "Making Friends", emoji: "🎎" },
+        { name: "Statistical Analysis", emoji: "📊" },
+        { name: "ML/AI", emoji: "🤖" },
+        { name: "Video Editing", emoji: "📹" },
+        { name: "Scrum/Agile", emoji: "🔄" },
+        { name: "Persuasion", emoji: "💬" },
+        { name: "Coding", emoji: "💻" },
+        { name: "Database/SQL", emoji: "📋" },
+        { name: "Listening", emoji: "👂" },
+        { name: "Technical Writing", emoji: "📚" },
+        { name: "Troubleshooting", emoji: "💡" },
+        { name: "Negotiation", emoji: "🤝" }
       ],
       selected: [],
       selectedKey: {},

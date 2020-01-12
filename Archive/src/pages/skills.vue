@@ -3,10 +3,11 @@
     <Nav :has_background="true"></Nav>
 
     <div class="form_container">
-      <div class="title">Select Your skills</div>
+      <div class="title">Pick your top three skills</div>
       <div class="skill_buttons">
         <el-button
-          v-bind:key="i"
+          :key="i"
+          class="removeFocusColor"
           size="medium"
           :type="selectedKey[i.name] ? 'primary' : ''"
           @click="add_select(i)"
@@ -38,21 +39,21 @@ export default {
   data() {
     return {
       skills: [
-        { name: "Eating", emoji: "🏊‍" },
-        { name: "Peeing", emoji: "🏊‍" },
-        { name: "Bluffing", emoji: "🏊‍" },
-        { name: "Shouing", emoji: "🏊‍" },
-        { name: "Blowing", emoji: "🏊‍" },
-        { name: "Sleeping", emoji: "🏊‍" },
-        { name: "Dicking", emoji: "🏊‍" },
-        { name: "Going", emoji: "🏊‍" },
-        { name: "Python", emoji: "🏊‍" },
-        { name: "Rust", emoji: "🏊‍" },
-        { name: "Fucking", emoji: "🍆‍" },
-        { name: "Fucking", emoji: "🍆‍" },
-        { name: "Fucking", emoji: "🍆‍" },
-        { name: "Fucking", emoji: "🍆‍" },
-        { name: "Fucking", emoji: "🍆‍" }
+        { name: "Creative Writing", emoji: "🖊️" },
+        { name: "Math", emoji: "➕" },
+        { name: "Teaching", emoji: "🏫" },
+        { name: "Making Friends", emoji: "🎎" },
+        { name: "Statistical Analysis", emoji: "📊" },
+        { name: "ML/AI", emoji: "🤖" },
+        { name: "Video Editing", emoji: "📹" },
+        { name: "Scrum/Agile", emoji: "🔄" },
+        { name: "Persuasion", emoji: "💬" },
+        { name: "Coding", emoji: "💻" },
+        { name: "Database/SQL", emoji: "📋" },
+        { name: "Listening", emoji: "👂" },
+        { name: "Technical Writing", emoji: "📚" },
+        { name: "Troubleshooting", emoji: "💡" },
+        { name: "Negotiation", emoji: "🤝" }
       ],
       selected: [],
       selectedKey: {},
