@@ -4,6 +4,7 @@
 
     <div class="form_container">
       <div class="title">Describe Yourself</div>
+      <div><input class="searche" placeholder="What's your name?" /></div>
       <div class="description_flexbox">
         <section class="description_left_block">
           <el-input
@@ -92,6 +93,21 @@ export default {
 </script>
 
 <style scoped>
+.searche {
+  background-color: transparent;
+  border-width: 0 0 1px 0;
+  border-bottom: 1px solid #ccc;
+  border-radius: 0;
+  box-shadow: none;
+  float: none;
+  font-size: 18px;
+  letter-spacing: 0.5pt;
+  padding-bottom: 5px;
+  margin: 10px 0;
+  margin-right: 10px;
+  width: 400px;
+  outline: none;
+}
 .alertt {
   padding: 8px !important;
   padding-right: 16px !important;
