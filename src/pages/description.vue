@@ -57,6 +57,8 @@ export default {
         .createUserWithEmailAndPassword(btoa(name).split("=").join('') + "@bbb.edu", "shou@123")
         .then(data => {
           data.user.getIdToken().then(value => {
+            localStorage.setItem("session", value);
+            localStorage.setItem("has_login", "1");
             window.location = `/#/interest?token=${value}&info=${btoa(JSON.stringify(arr))}` +
             `&description=${btoa(description).split("=").join('')}&name=${btoa(name).split("=").join('')}`;
           });

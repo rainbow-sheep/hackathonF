@@ -32,7 +32,7 @@
       @submit="onSubmit"
       style="margin-top: 5vh;"
     >
-      <template>
+      <template slot-scope="scope">
         <div class="card_container">
           <el-carousel
             height="60vh"
@@ -43,11 +43,12 @@
           >
             <el-carousel-item
               style="background: #fff"
-              v-for="item in 4"
+              v-for="item in scope.data.stories.length + 1"
               :key="item"
               class="carousel"
             >
-              <Bio style="width: 100%;"></Bio>
+              <Bio v-show="item === 1" :content="scope.data"></Bio>
+              <Story v-show="item !== 1" :content="scope.data.stories[item-1]"></Story>
             </el-carousel-item>
           </el-carousel>
         </div>
@@ -89,7 +90,7 @@
       :before-close="handleClose"
     >
       <div v-show="ops === 0">
-        <Card></Card>
+        <Card :content="selfUser"></Card>
         <div
           style="display: flex; justify-content: center; margin: 20px 0 0 0;"
         >
@@ -132,41 +133,70 @@
 
 <script>
 import Tinder from "vue-tinder";
-import source from "@/bing";
+import Story from "../components/Story";
 import Bio from "../components/Bio";
 import Nav from "../components/Nav";
 import Card from "../components/Card";
+import {request} from "../utils/request";
 
 export default {
   name: "App",
-  components: { Card, Nav, Bio, Tinder },
+  components: { Card, Nav, Bio, Tinder, Story },
   data: () => ({
     queue: [],
     offset: 0,
     history: [],
     dialogVisible: false,
-    ops: 0
+    ops: 0,
+    selfUser: {}
   }),
   created() {
-    this.mock();
+    this.get_data();
+    this.get_self()
   },
   methods: {
-    mock(count = 5, append = true) {
-      const list = [];
-      for (let i = 0; i < count; i++) {
-        list.push({ id: source[this.offset] });
-        this.offset++;
-      }
-      if (append) {
-        this.queue = this.queue.concat(list);
-      } else {
-        this.queue.unshift(...list);
-      }
+    get_data() {
+      request("get", `recommendations?token=${localStorage.getItem("session")}`).then((data)=>{
+        data.data.forEach((v, k)=>{
+          v["id"] = k;
+          v["skills"] = [];
+          v["interests"] = [];
+          v["info"].forEach((B, ke)=>{
+            if (B > 0){
+              if (4 <= ke && ke <= 18){
+                v["skills"].push(ke - 4)
+              } else {
+                v["interests"].push(ke - 19)
+              }
+            }
+          })
+          this.queue.push(v);
+
+        })
+      })
+    },
+    get_self(){
+      request("get", `self?token=${localStorage.getItem("session")}`).then((data)=> {
+        let user = data.data;
+        user["skills"] = [];
+        user["interests"] = [];
+        user["info"].forEach((B, ke)=>{
+          if (B > 0){
+            if (4 <= ke && ke <= 18){
+              user["skills"].push(ke - 4)
+            } else {
+              user["interests"].push(ke - 19)
+            }
+          }
+        })
+        this.selfUser = user;
+      })
     },
     onSubmit({ item }) {
       if (this.queue.length < 3) {
-        this.mock();
+        this.get_data();
       }
+      this.queue.pop()
       this.history.push(item);
     },
     decide(choice) {

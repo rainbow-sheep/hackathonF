@@ -3,7 +3,6 @@
     <div class="card_container">
       <el-carousel
         height="60vh"
-        v-show="op === 1"
         :initial-index.sync="ii"
         :autoplay="false"
         trigger="click"
@@ -11,11 +10,11 @@
       >
         <el-carousel-item
           style="background: #fff"
-          v-for="item in currentItem"
+          v-for="item in content.stories.length + 1"
           :key="item"
           class="carousel"
         >
-          <Bio v-show="item === 1"></Bio>
+          <Bio v-show="item === 1" :content="content"></Bio>
           <Story v-show="item !== 1"></Story>
         </el-carousel-item>
       </el-carousel>
@@ -30,22 +29,17 @@ export default {
   name: "Card",
   data() {
     return {
-      op: 1,
       currentItem: [1, 2, 3]
     };
   },
+  mounted(){
+    console.log(this.content)
+  },
   props: {
-    no_show: Boolean
+    no_show: Boolean,
+    content: Object
   },
   methods: {
-    next() {
-      this.$refs.car.setActiveItem(0);
-      this.op = 0;
-      this.currentItem = [5, 4, 2];
-      setTimeout(() => {
-        this.op = 1;
-      }, 1000);
-    }
   },
   components: { Bio, Story }
 };
