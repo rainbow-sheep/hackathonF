@@ -55,13 +55,14 @@ export default {
         .auth()
         .createUserWithEmailAndPassword(btoa(name).split("=").join('') + "@bbb.edu", "shou@123")
         .then(data => {
-          console.log(data);
-          window.location = `/#/interest?description=${btoa(description).split("=").join('')}&name=${btoa(name).split("=").join('')}`;
+          data.user.getIdToken().then(value => {
+            window.location = `/#/interest?token=${value}` +
+            `&description=${btoa(description).split("=").join('')}&name=${btoa(name).split("=").join('')}`;
+          });
         })
         .catch(err => {
           console.log(err.message);
         });
-      console.log(this.data);
     },
   },
   data() {
