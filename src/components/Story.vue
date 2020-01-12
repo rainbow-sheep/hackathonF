@@ -1,13 +1,10 @@
 <template>
   <div class="story_container">
-    <div class="story_left"></div>
+    <el-image class="story_left" fit="cover" :src="content.pic_url"></el-image>
     <div class="story_right">
-      <h1>I travelled</h1>
+      <h1>{{ content.title }}</h1>
       <div class="story_line"></div>
-      <p class="story_desc">
-        I am so cool! I am so cool!I am so cool!I am so cool!I am so cool!I am
-        so cool!
-      </p>
+      <div class="story_desc" v-html="content.description"></div>
     </div>
   </div>
 </template>
@@ -19,6 +16,12 @@ export default {
     return {
       ops: 2 //2 for new, 3 for edit
     };
+  },
+  mounted(){
+    console.log(this.content)
+  },
+  props: {
+    content: Object,
   }
 };
 </script>

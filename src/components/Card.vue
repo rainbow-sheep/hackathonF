@@ -15,7 +15,7 @@
           class="carousel"
         >
           <Bio v-show="item === 1" :content="content"></Bio>
-          <Story v-show="item !== 1"></Story>
+          <Story v-show="item !== 1" :content="content.stories[item-1]"></Story>
         </el-carousel-item>
       </el-carousel>
     </div>
@@ -33,7 +33,7 @@ export default {
     };
   },
   mounted(){
-    console.log(this.content)
+    // console.log(this.content)
   },
   props: {
     no_show: Boolean,

@@ -34,7 +34,7 @@
         <div class="card_container">
           <el-carousel
             height="60vh"
-            :initial-index.sync="ii"
+            :initial-index="0"
             :autoplay="false"
             trigger="click"
             ref="car"
@@ -46,7 +46,7 @@
               class="carousel"
             >
               <Bio v-show="item === 1" :content="scope.data"></Bio>
-              <Story v-show="item !== 1" :content="scope.data.stories[item-1]"></Story>
+              <Story v-show="item !== 1" :content="scope.data['stories'][item - 2]"></Story>
             </el-carousel-item>
           </el-carousel>
         </div>
