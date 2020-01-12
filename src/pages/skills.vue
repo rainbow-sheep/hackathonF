@@ -26,7 +26,7 @@
           <label style="float: right" class="amt">
             Skill Level: {{ i.percentage / 10 }}</label
           >
-          <el-slider v-model="i.percentage"></el-slider>
+          <el-slider :show-tooltip="false" v-model="i.percentage"></el-slider>
         </div>
       </div>
 

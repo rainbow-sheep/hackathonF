@@ -25,7 +25,7 @@
           >
 
           <label class="auth_label">{{ i.name }}</label>
-          <el-slider v-model="i.percentage"></el-slider>
+          <el-slider :show-tooltip="false" v-model="i.percentage"></el-slider>
         </div>
       </div>
 
