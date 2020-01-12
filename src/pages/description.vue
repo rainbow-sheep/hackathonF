@@ -60,7 +60,7 @@ export default {
             localStorage.setItem("session", value);
             localStorage.setItem("has_login", "1");
             window.location = `/#/interest?token=${value}&info=${btoa(JSON.stringify(arr))}` +
-            `&description=${btoa(description).split("=").join('')}&name=${btoa(name).split("=").join('')}`;
+            `&description=${btoa(description)}&name=${btoa(name)}`;
           });
         })
         .catch(err => {

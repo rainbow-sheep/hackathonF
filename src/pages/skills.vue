@@ -122,7 +122,7 @@ export default {
       console.log(oldArgs)
       for (let k in oldArgs){
         if (k === "_method" || k=== "token"){continue}
-        oldArgs[k] = base64DecodeUnicode(oldArgs[k])
+        oldArgs[k] = base64DecodeUnicode(decodeURIComponent(oldArgs[k]))
       }
       oldArgs["about"] = {
         name: oldArgs["name"],
