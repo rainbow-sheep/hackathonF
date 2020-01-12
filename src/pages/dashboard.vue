@@ -1,14 +1,20 @@
 <template>
   <div style="overflow: hidden">
+    <div class="navAdd">
+      <el-button
+        type=""
+        style="width: 100%; margin-right: 20px"
+        @click="dialogVisible = true"
+        >✒️ Edit my profile</el-button
+      >
+      <br /><br />
+      <el-button type="" style="width: 100%;">⚙️ Settings</el-button>
+      <br /><br />
+    </div>
     <Nav :has_background="true"></Nav>
+
     <div class="dash_left_box">
       <div class="messages">
-        <el-button type="" style="width: 100%;" @click="dialogVisible = true"
-          >✒️ Edit my profile</el-button
-        >
-        <br /><br />
-        <el-button type="" style="width: 100%;">⚙️ Settings</el-button>
-        <br /><br />
         <strong style="font-size: 24px;">Messages</strong>
         <br /><br />
         <span style="color: #aaa;">No new messages</span>
@@ -203,8 +209,16 @@ export default {
   background: #eee;
   width: 20%;
 }
+.navAdd {
+  position: absolute;
+  width: 10%;
+  display: flex;
+  height: 5vh;
+  margin-top: 4vh;
+  margin-left: 80%;
+}
 .messages {
-  margin: 7vh 5vw;
+  margin: 3vh 7vh 5vw 3vw;
 }
 .nope-pointer,
 .like-pointer {
