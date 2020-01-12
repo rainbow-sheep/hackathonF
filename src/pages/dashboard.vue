@@ -4,16 +4,16 @@
     <div class="dash_left_box">
       <div class="messages">
         <el-button type="" style="width: 100%;" @click="dialogVisible = true"
-          >✒️ Modify My Profile</el-button
+          >✒️ Edit my profile</el-button
         >
         <br /><br />
         <el-button type="" style="width: 100%;">⚙️ Settings</el-button>
         <br /><br />
         <strong style="font-size: 24px;">Messages</strong>
         <br /><br />
-        <span style="color: #aaa;">/* No one sent you any message */</span>
+        <span style="color: #aaa;">No new messages</span>
         <br />
-        <span style="color: #aaa;">/* Visit more people on right */</span>
+        <span style="color: #aaa;">Visit people on right</span>
         <div class="line" style="width: 40%;margin-top: 30px;"></div>
         <div class="line" style="width: 80%;margin-top: 10px;"></div>
       </div>
@@ -101,10 +101,10 @@
           >
             <i class="el-icon-upload"></i>
             <div class="el-upload__text">
-              将文件拖到此处，或<em>点击上传</em>
+              Click to upload
             </div>
             <div class="el-upload__tip" slot="tip">
-              只能上传jpg/png文件，且不超过500kb
+              Upload travel pictures and work (jpg/png)
             </div>
           </el-upload>
           <div style="margin-left: 20px; width: 50%;">
@@ -204,7 +204,7 @@ export default {
   width: 20%;
 }
 .messages {
-  margin: 5% 5vw;
+  margin: 7vh 5vw;
 }
 .nope-pointer,
 .like-pointer {
