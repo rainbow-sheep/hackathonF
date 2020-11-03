@@ -1,48 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-    <link rel="icon" href="<%= BASE_URL %>log.ico" />
-    <title>Pal Up</title>
-  </head>
-  <body>
-    <noscript>
-      <strong
-        >We're sorry but codesandbox doesn't work properly without JavaScript
-        enabled. Please enable it to continue.</strong
-      >
-    </noscript>
-    <div id="app"></div>
-    <!-- built files will be auto injected -->
-    <script>
-      body = document.querySelector("body");
-      if ((window.location.href = "#/dashboard")) {
-        body.classList.toggle("dashboard");
-    </script>
-    <style>
-      .index {
-        background-image: "../assets/landing.png";
-      }
-      .dashboard {
-        overflow: hidden;
-      }
-      .el-button.el-button--medium.is-roundJ:focus {
-        background-color: #ff6348 !important;
-      }
-      .el-textarea__inner {
-        min-height: 33px;
-        resize: none;
-        padding: 2px;
-        font-family: "Open Sans";
-      }
-      .el-textarea__inner::placeholder {
-        margin: 30px;
-      }
-      .el-message-box{
-        font-family: "Open Sans";
-      }
-    </style>
-  </body>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <link rel="icon" href="<%= BASE_URL %>log.ico" />
+  <title>Pal Up</title>
+</head>
+
+<body>
+  <noscript>
+    <strong>We're sorry but codesandbox doesn't work properly without JavaScript
+      enabled. Please enable it to continue.</strong>
+  </noscript>
+  <div id="app"></div>
+  <!-- built files will be auto injected -->
+  <script>
+    body = document.querySelector("body");
+    if ((window.location.href = "#/dashboard")) {
+      body.classList.toggle("dashboard");
+    }
+  </script>
+  <style>
+    .index {
+      background-image: "../assets/landing.png";
+    }
+
+    .dashboard {
+      overflow: hidden;
+    }
+
+    .el-button.el-button--medium.is-roundJ:focus {
+      background-color: #ff6348 !important;
+    }
+
+    .el-textarea__inner {
+      min-height: 33px;
+      resize: none;
+      padding: 2px;
+      font-family: "Open Sans";
+    }
+
+    .el-textarea__inner::placeholder {
+      margin: 30px;
+    }
+
+    .el-message-box {
+      font-family: "Open Sans";
+    }
+  </style>
+</body>
+
 </html>
