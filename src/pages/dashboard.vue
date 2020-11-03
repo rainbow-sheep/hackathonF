@@ -197,7 +197,7 @@ export default {
           let e = event || window.event || arguments.callee.caller.arguments[0];
           setTimeout(()=>{
             if (e && e.keyCode == 191) {
-              this.$alert(`You have matched with ${first.about.name}`, 'Congratulation');
+              this.$alert(`You have matched with ${first.about.name}`, 'Congratulations');
             }
           }, 4000)
         }
